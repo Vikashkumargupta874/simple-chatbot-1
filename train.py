@@ -2,16 +2,16 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 import os
 
-def train(bot):
+def train(my_assistant):
 	path = 'data\\english\\'
 	for file in os.listdir(path):
 		data = open(path + file, 'r').readlines()
-		bot.train(data)
+		my_assistant.train(data)
 
 def main():
-	bot = ChatBot('My_Bot')
-	bot.set_trainer(ListTrainer)
-	train(bot)
+	my_assistant = ChatBot('My_assistant')
+	my_assistant.set_trainer(ListTrainer)
+	train(my_assistant)
 
 
 if __name__ == '__main__':
